@@ -10,7 +10,7 @@ public class Deck {
     private Boolean shuffled;
     private Piles piles;
 
-    public boolean isSuccess() {
+    public boolean getSuccess() {
         return success;
     }
 

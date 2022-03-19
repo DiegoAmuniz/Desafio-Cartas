@@ -10,7 +10,7 @@ public class Baralho {
     private Boolean embaralhado;
     private Pilhas pilhas;
 
-    public boolean isSucesso() {
+    public boolean getSucesso() {
         return sucesso;
     }
 
