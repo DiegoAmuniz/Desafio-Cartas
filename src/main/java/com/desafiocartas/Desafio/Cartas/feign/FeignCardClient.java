@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
+
+
 @Service
 @FeignClient(name= "deckclient", url = "https://deckofcardsapi.com/api/deck/")
 public interface FeignCardClient {
