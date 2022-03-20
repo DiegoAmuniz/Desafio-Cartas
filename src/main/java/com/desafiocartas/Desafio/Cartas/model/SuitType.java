@@ -2,13 +2,13 @@ package com.desafiocartas.Desafio.Cartas.model;
 
 public class SuitType {
 
-    SPADES("ESPADAS"),
+    // SPADES("ESPADAS"),
 
-    HEARTS("COPAS"),
+    //HEARTS("COPAS"),
 
-    CLUBS("PAUS"),
+    //CLUBS("PAUS"),
 
-    DIAMONDS("OUROS");
+    //DIAMONDS("OUROS");
 
     private String suitName;
 
