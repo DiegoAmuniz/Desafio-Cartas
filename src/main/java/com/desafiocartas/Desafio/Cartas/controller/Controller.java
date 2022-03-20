@@ -5,6 +5,7 @@ import com.desafiocartas.Desafio.Cartas.service.DeckService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -16,23 +17,31 @@ public class Controller {
     @Autowired
     DeckService deckService;
 
-    @GetMapping("/novoBaralho/")
-    public ResponseEntity novoBaralho(){
-        return new ResponseEntity(deckService.novoBaralho(), HttpStatus.OK);
+    @GetMapping("/novo/")
+    public ResponseEntity novo(){
+        return new ResponseEntity(deckService.novo(), HttpStatus.OK);
     }
 
-    @GetMapping("/embaralhar/{deckId}")
-    public ResponseEntity embaralharBaralho(@PathVariable("deckId") String deckId){
-        return new ResponseEntity(deckService.embaralharDeckId(deckId), HttpStatus.OK);
+    @GetMapping("{deckId}/embaralhar/")
+    public ResponseEntity embaralhar(@PathVariable("deckId") String deckId){
+        return new ResponseEntity(deckService.embaralhado(deckId), HttpStatus.OK);
     }
 
-    @GetMapping("/novoBaralhoEmbaralhado/")
-    public ResponseEntity novoBaralhoEmbaralhado(@RequestParam(value = "deck_count", defaultValue = "1") String deckCount){
-        return new ResponseEntity(deckService.novoBaralhoEmbaralhado(deckCount),HttpStatus.OK);
+    @GetMapping("/novo/embaralhar/")
+    public ResponseEntity novoEmbaralhar(@RequestParam(value = "cartas_Contagem", defaultValue = "1") String deckCount){
+        return new ResponseEntity(deckService.novoEmbaralhar(deckCount),HttpStatus.OK);
     }
 
-    @GetMapping("/parcialBaralho/")
-    public ResponseEntity baralhoParcial(@RequestParam ("deck") String deck){
+    @GetMapping("/novo/embaralhar/parcial")
+    public ResponseEntity baralhoParcial(@RequestParam ("cartas") String deck){
         return new ResponseEntity(deckService.baralhoParcial(deck), HttpStatus.OK);
     }
+
+    @GetMapping("{deckId}/desenhar/")
+    public ResponseEntity desenhar(@PathVariable("deckId") @RequestParam(value = "contagem", defaultValue = "2") String deckId, String count){
+        return new ResponseEntity(deckService.desenhar(deckId, count), HttpStatus.OK);
+    }
+
+
+
 }

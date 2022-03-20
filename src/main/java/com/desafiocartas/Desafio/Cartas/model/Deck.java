@@ -7,8 +7,9 @@ public class Deck {
     private List<Card> cards;
     private String deck_id;
     private Integer remaining;
-    private Boolean shuffled;
-    private Piles piles;
+    private boolean shuffled;
+    //private Piles piles;
+
 
     public boolean getSuccess() {
         return success;
@@ -42,19 +43,11 @@ public class Deck {
         this.remaining = remaining;
     }
 
-    public Boolean getShuffled() {
+    public boolean getShuffled() {
         return shuffled;
     }
 
-    public void setShuffled(Boolean shuffled) {
+    public void setShuffled(boolean shuffled) {
         this.shuffled = shuffled;
-    }
-
-    public Piles getPiles() {
-        return piles;
-    }
-
-    public void setPiles(Piles piles) {
-        this.piles = piles;
     }
 }

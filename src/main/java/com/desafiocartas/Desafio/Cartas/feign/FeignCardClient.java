@@ -13,21 +13,46 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface FeignCardClient {
 
     @GetMapping("/new/")
-    Deck newDeck();
+        Deck newDeck();
 
     @GetMapping("{deckId}/shuffle/")
-    Deck shuffleDeckById(@PathVariable("deckId") String deckId);
+        Deck shuffleDeckById(@PathVariable("deckId") String deckId);
+
+//        Deck shuffleRemaining(@PathVariable("deckId") String deckId,
+    //                          @RequestParam(value = "remaining", defaultValue = "true")String remaining);
 
     @GetMapping("/new/shuffle/")
-    Deck newDeckShuffle(@RequestParam(value = "deck_count", defaultValue = "1") String deckCount);
+        Deck newDeckShuffle(@RequestParam(value = "deck_count", defaultValue = "1") String deckCount);
 
     @GetMapping("/new/shuffle/")
-    Deck parcialDeck(@RequestParam("cards") String cards);
+        Deck parcialDeck(@RequestParam("cards") String cards);
 
     @GetMapping("{deckId}/draw/")
-    Deck drawDeck(@PathVariable("deckId") String deckId, @RequestParam("count") String count);
+        Deck drawDeck(@PathVariable("deckId") String deckId,
+                      @RequestParam(value = "count", defaultValue = "2") String count);
 
     @GetMapping("{deckId}/pile/{pile_name}/add/")
-    Deck addToPile(@PathVariable("deckId") String deckId, @PathVariable("pile_name") String pile_name, @RequestParam("cards") String cards);
+        Deck addToPile(@PathVariable("deckId") String deckId,
+                       @PathVariable("pile_name") String pile_name,
+                       @RequestParam("cards") String cards);
 
+    @GetMapping("{deckId}/pile/{pile_name}/shuffle/")
+        Deck shuffleToPile(@PathVariable("deckId") String deckId,
+                           @PathVariable ("pile_name") String pile_name);
+
+    @GetMapping("{deckId}/pile/{pile_name}/list/")
+        Deck listToPile(@PathVariable("deckId") String deckId,
+                        @PathVariable ("pile_name") String pile_name);
+
+    @GetMapping("{deckId}/pile/{pile_name}/draw/")
+        Deck drawToPile(@PathVariable("deckId") String deckId,
+                        @PathVariable ("pile_name") String pile_name,
+                        @RequestParam("cards") String cards,
+                        @RequestParam("count") String count);
+
+    @GetMapping("{deckId}/draw/bottom/")
+        Deck drawBottom(@PathVariable("deckId") String deckId);
+
+    @GetMapping("{deckId}/draw/random/")
+        Deck drawRandom(@PathVariable("deckId") String deckId);
 }

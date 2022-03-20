@@ -3,18 +3,19 @@ package com.desafiocartas.Desafio.Cartas.model;
 import java.util.List;
 
 public class Baralho {
-    private boolean sucesso;
+    private String sucesso;
     private List<Carta> cartas;
     private String baralho_id;
     private Integer restante;
-    private Boolean embaralhado;
-    private Pilhas pilhas;
+    private String embaralhado;
+   // private Pilhas pilhas;
 
-    public boolean getSucesso() {
+
+    public String getSucesso() {
         return sucesso;
     }
 
-    public void setSucesso(boolean sucesso) {
+    public void setSucesso(String sucesso) {
         this.sucesso = sucesso;
     }
 
@@ -42,19 +43,11 @@ public class Baralho {
         this.restante = restante;
     }
 
-    public Boolean getEmbaralhado() {
+    public String getEmbaralhado() {
         return embaralhado;
     }
 
-    public void setEmbaralhado(Boolean embaralhado) {
+    public void setEmbaralhado(String embaralhado) {
         this.embaralhado = embaralhado;
-    }
-
-    public Pilhas getPilhas() {
-        return pilhas;
-    }
-
-    public void setPilhas(Pilhas pilhas) {
-        this.pilhas = pilhas;
     }
 }
