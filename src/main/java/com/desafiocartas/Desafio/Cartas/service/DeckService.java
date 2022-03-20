@@ -25,10 +25,41 @@ public class DeckService {
 
     public Baralho embaralharDeckId(String id){
         Deck deckEmbaralhado = feignCardClient.shuffleDeckById(id);
-        Baralho baralhoEmbaralhado = new Baralho();
-        baralhoEmbaralhado.setSucesso(deckEmbaralhado.getSuccess();
-        baralhoEmbaralhado.setBaralho_id(deckEmbaralhado.getDeck_id();
-        baralhoEmbaralhado.setRestante(deckEmbaralhado.getRemaining();
-        baralhoEmbaralhado.setEmbaralhado(deckEmbaralhado.getShuffled();
-        return baralhoEmbaralhado;
+        Baralho embaralhado = new Baralho();
+        embaralhado.setSucesso(deckEmbaralhado.getSuccess();
+        embaralhado.setBaralho_id(deckEmbaralhado.getDeck_id();
+        embaralhado.setRestante(deckEmbaralhado.getRemaining();
+        embaralhado.setEmbaralhado(deckEmbaralhado.getShuffled();
+        return embaralhado;
+}
+
+    public Baralho novoBaralhoEmbaralhado (String deckCount){
+        Deck deckNovoEmbaralhado = feignCardClient.newDeckShuffle(deckCount);
+        Baralho novoEmbaralhado = new Baralho();
+        novoEmbaralhado.setSucesso(deckNovoEmbaralhado.getSuccess());
+        novoEmbaralhado.setBaralho_id(deckNovoEmbaralhado.getDeck_id();
+        novoEmbaralhado.setEmbaralhado(deckNovoEmbaralhado.getShuffled();
+        novoEmbaralhado.setRestante(deckNovoEmbaralhado.getRemaining();
+        return novoEmbaralhado;
+    }
+
+    public Baralho baralhoParcial(String deck){
+        Deck deckParcial = feignCardClient.parcialDeck(deck);
+        Baralho parcial = new Baralho();
+        parcial.setSucesso(deckParcial.getSuccess();
+        parcial.setBaralho_id(deckParcial.getDeck_id());
+        parcial.setRestante(deckParcial.getRemaining());
+        parcial.setEmbaralhado(deckParcial.getShuffled());
+        return parcial;
+    }
+
+    private Carta converterCarta(Card card){
+        Carta carta = new Carta();
+        carta.setCodigo(card.getCode());
+        carta.setImagem(card.getImage());
+        carta.setTipo(converterCarta(card));
+        carta.setValor(converteValor(card));
+        return carta;
+    }
+
 }
