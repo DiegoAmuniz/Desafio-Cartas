@@ -1,6 +1,5 @@
 package com.desafiocartas.Desafio.Cartas.service;
 
-
 import com.desafiocartas.Desafio.Cartas.feign.FeignCardClient;
 import com.desafiocartas.Desafio.Cartas.model.Baralho;
 import com.desafiocartas.Desafio.Cartas.model.Deck;
