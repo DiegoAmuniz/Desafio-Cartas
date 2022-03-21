@@ -58,6 +58,7 @@ public class DeckService {
         Deck desenharDeck = feignCardClient.drawDeck(deckId, count);
         Baralho desenhar = new Baralho();
         desenhar.setSucesso(this.booleanToString(desenharDeck.getSuccess()));
+        desenhar.setBaralho_id(desenharDeck.getDeck_id());
         List<Carta> cartas = new ArrayList<>();
                 for (int i = 0; i < desenharDeck.getCards().size(); i++) {
                     Card card = desenharDeck.getCards().get(i);
@@ -65,7 +66,6 @@ public class DeckService {
                     cartas.add(carta);
                 }
                 desenhar.setCartas(cartas);
-                desenhar.setBaralho_id(desenharDeck.getDeck_id());
                 desenhar.setRestante(desenharDeck.getRemaining());
                 return desenhar;
 

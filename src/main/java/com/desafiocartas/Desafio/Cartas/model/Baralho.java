@@ -4,8 +4,8 @@ import java.util.List;
 
 public class Baralho {
     private String sucesso;
-    private List<Carta> cartas;
     private String baralho_id;
+    private List<Carta> cartas;
     private Integer restante;
     private String embaralhado;
    // private Pilhas pilhas;

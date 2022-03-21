@@ -38,7 +38,7 @@ public class Controller {
     }
 
     @GetMapping("{deckId}/desenhar/")
-    public ResponseEntity desenhar(@PathVariable("deckId") @RequestParam(value = "contagem", defaultValue = "2") String deckId, String count){
+    public ResponseEntity desenhar(@PathVariable("deckId") String deckId, @RequestParam(value = "contagem", defaultValue = "2") String count){
         return new ResponseEntity(deckService.desenhar(deckId, count), HttpStatus.OK);
     }
 
