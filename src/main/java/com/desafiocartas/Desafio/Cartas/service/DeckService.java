@@ -112,7 +112,7 @@ public class DeckService {
     private Carta converterCarta(Card card){
         Carta convCartas = new Carta();
         convCartas.setCodigo(card.getCode());
-        convCartas.setImagen(card.getImage());
+        convCartas.setImagem(card.getImage());
         convCartas.setTipo(converteNipe(card));
         convCartas.setValor(converteValor(card));
         return convCartas;
