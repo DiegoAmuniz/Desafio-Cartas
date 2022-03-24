@@ -2,11 +2,11 @@ package com.desafiocartas.Desafio.Cartas.model;
 
 
 public class Carta {
-    private String codigo;
-    private String imagem;
-   // private String imagens;
-    private String valor;
-    private String tipo;
+    public String codigo;
+    public String imagem;
+   // public String imagens;
+    public String valor;
+    public String tipo;
 
     public String getCodigo() {
         return codigo;

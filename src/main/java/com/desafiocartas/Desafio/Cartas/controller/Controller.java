@@ -42,6 +42,4 @@ public class Controller {
         return new ResponseEntity(deckService.desenhar(deckId, count), HttpStatus.OK);
     }
 
-
-
 }

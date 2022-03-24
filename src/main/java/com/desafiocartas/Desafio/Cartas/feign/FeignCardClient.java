@@ -18,8 +18,6 @@ public interface FeignCardClient {
     @GetMapping("{deckId}/shuffle/")
         Deck shuffleDeckById(@PathVariable("deckId") String deckId);
 
-//        Deck shuffleRemaining(@PathVariable("deckId") String deckId,
-    //                          @RequestParam(value = "remaining", defaultValue = "true")String remaining);
 
     @GetMapping("/new/shuffle/")
         Deck newDeckShuffle(@RequestParam(value = "deck_count", defaultValue = "1") String deckCount);

@@ -19,8 +19,8 @@ public class DeckService {
         Baralho baralho = new Baralho();
         baralho.setSucesso(this.booleanToString(deck.getSuccess()));
         baralho.setBaralho_id(deck.getDeck_id());
-        baralho.setEmbaralhado(this.booleanToString(deck.getShuffled()));
         baralho.setRestante(deck.getRemaining());
+        baralho.setEmbaralhado(this.booleanToString(deck.getShuffled()));
         return baralho;
 }
 
