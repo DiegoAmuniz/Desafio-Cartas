@@ -127,4 +127,13 @@ public class DeckService {
         return "falso";
     }
 
+    public Baralho listarPilha(String deckId, String pileName){
+        Deck deckListar = feignCardClient.listToPile(deckId, pileName);
+        Baralho listarBaralho = new Baralho();
+        listarBaralho.setSucesso(this.booleanToString(deckListar.getSuccess()));
+        listarBaralho.setBaralho_id(deckListar.getDeck_id());
+        listarBaralho.setRestante(deckListar.getRemaining());
+        return listarBaralho;
+    }
+
 }

@@ -42,4 +42,8 @@ public class Controller {
         return new ResponseEntity(deckService.desenhar(deckId, count), HttpStatus.OK);
     }
 
+    @GetMapping("{deckId}/pilha/{pile_name}/listar/")
+    public ResponseEntity listarPilha(@PathVariable("deckId") String deckId, @PathVariable("pile_name") String pileName) {
+        return new ResponseEntity(deckService.listarPilha(deckId, pileName), HttpStatus.OK);
+    }
 }
