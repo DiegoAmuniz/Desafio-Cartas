@@ -26,11 +26,11 @@ public class Baralho {
         this.restante = restante;
     }
 
-    public void setPilhas(Pilhas pilhas) {
-        this.pilhas = pilhas;
-    }
+    public void setPilhas(Pilhas pilhas) { this.pilhas = pilhas;}
 
     public void setEmbaralhado(String embaralhado) {
         this.embaralhado = embaralhado;
     }
+
+
 }

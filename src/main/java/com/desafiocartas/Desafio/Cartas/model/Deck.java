@@ -11,19 +11,17 @@ public class Deck {
     public boolean shuffled;
 
     public boolean getSuccess() {
-        return success;
+        return this.success;
     }
 
     public String getDeck_id() {
-        return deck_id;
+        return this.deck_id;
     }
 
-    public List<Card> getCards() {
-        return cards;
-    }
+    public List<Card> getCards() { return this.cards; }
 
     public Integer getRemaining() {
-        return remaining;
+        return this.remaining;
     }
 
     public Piles getPiles() {
@@ -31,6 +29,6 @@ public class Deck {
     }
 
     public boolean getShuffled() {
-        return shuffled;
+        return this.shuffled;
     }
 }

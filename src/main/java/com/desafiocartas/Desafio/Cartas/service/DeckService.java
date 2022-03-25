@@ -133,7 +133,11 @@ public class DeckService {
         listarBaralho.setSucesso(this.booleanToString(deckListar.getSuccess()));
         listarBaralho.setBaralho_id(deckListar.getDeck_id());
         listarBaralho.setRestante(deckListar.getRemaining());
+        PilhaNome nomePilha = new PilhaNome();
+        Pilhas pilha = new Pilhas();
+        pilha.setPilha_nome(nomePilha);
+        listarBaralho.setPilhas(pilha);
         return listarBaralho;
-    }
 
+    }
 }
