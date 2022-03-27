@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
 @Service
 @FeignClient(name= "deckclient", url = "https://deckofcardsapi.com/api/deck/")
 public interface FeignCardClient {
@@ -40,8 +39,8 @@ public interface FeignCardClient {
                            @PathVariable ("pile_name") String pile_name);
 
     @GetMapping("{deckId}/pile/{pile_name}/list/")
-        Deck listToPile (@PathVariable("deckId") String deckId,
-                        @PathVariable ("pile_name") String pile_name);
+        Deck listToPile (@PathVariable("deckId") String deck_id,
+                         @PathVariable("pile_name")String piles);
 
 
 

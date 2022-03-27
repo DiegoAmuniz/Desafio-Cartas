@@ -1,19 +1,18 @@
 package com.desafiocartas.Desafio.Cartas.controller;
 
-import com.desafiocartas.Desafio.Cartas.feign.FeignCardClient;
+import com.desafiocartas.Desafio.Cartas.model.Baralho;
+import com.desafiocartas.Desafio.Cartas.model.Piles;
 import com.desafiocartas.Desafio.Cartas.service.DeckService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RestController
 @RequestMapping
 public class Controller {
-
-    //Controller Redireciona as requisições para Classe Service
-
     @Autowired
     DeckService deckService;
 
@@ -23,8 +22,10 @@ public class Controller {
     }
 
     @GetMapping("{deckId}/embaralhar/")
-    public ResponseEntity embaralhar(@PathVariable("deckId") String deckId){
-        return new ResponseEntity(deckService.embaralhado(deckId), HttpStatus.OK);
+    public ResponseEntity<Baralho> embaralharBaralho(@PathVariable("deckId") String deckId){
+        Baralho embaralhar = deckService.embaralhado(deckId);
+
+        return embaralhar != null ? ResponseEntity.ok().body(embaralhar) : ResponseEntity.notFound().build();
     }
 
     @GetMapping("/novo/embaralhar/")
@@ -39,11 +40,16 @@ public class Controller {
 
     @GetMapping("{deckId}/desenhar/")
     public ResponseEntity desenhar(@PathVariable("deckId") String deckId, @RequestParam(value = "contagem", defaultValue = "2") String count){
+
         return new ResponseEntity(deckService.desenhar(deckId, count), HttpStatus.OK);
     }
 
     @GetMapping("{deckId}/pilha/{pile_name}/listar/")
-    public ResponseEntity listarPilha(@PathVariable("deckId") String deckId, @PathVariable("pile_name") String pileName) {
-        return new ResponseEntity(deckService.listarPilha(deckId, pileName), HttpStatus.OK);
+    public ResponseEntity listarPilha(@PathVariable Map<String, String> patchVarsMap){
+        String deck_id = patchVarsMap.get("deckId");
+        String piles = patchVarsMap.get("pile_name");
+        return new ResponseEntity(deckService.listarPilha(deck_id, piles), HttpStatus.OK);
     }
+
+
 }

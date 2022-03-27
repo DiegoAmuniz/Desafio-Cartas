@@ -3,6 +3,7 @@ package com.desafiocartas.Desafio.Cartas.service;
 import com.desafiocartas.Desafio.Cartas.feign.FeignCardClient;
 import com.desafiocartas.Desafio.Cartas.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.converter.json.GsonBuilderUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -22,17 +23,18 @@ public class DeckService {
         baralho.setRestante(deck.getRemaining());
         baralho.setEmbaralhado(this.booleanToString(deck.getShuffled()));
         return baralho;
-}
+    }
 
     public Baralho embaralhado(String id){
-        Deck deckEmbaralhar = feignCardClient.shuffleDeckById(id);
-        Baralho embaralhar = new Baralho();
-        embaralhar.setSucesso(this.booleanToString(deckEmbaralhar.getSuccess()));
-        embaralhar.setBaralho_id(deckEmbaralhar.getDeck_id());
-        embaralhar.setRestante(deckEmbaralhar.getRemaining());
-        embaralhar.setEmbaralhado(this.booleanToString(deckEmbaralhar.getShuffled()));
-        return embaralhar;
-}
+        Deck deckEmbaralhado = feignCardClient.shuffleDeckById(id);
+        Baralho embaralhado = new Baralho();
+        embaralhado.setSucesso(this.booleanToString(deckEmbaralhado.getSuccess()));
+        embaralhado.setBaralho_id(deckEmbaralhado.getDeck_id());
+        embaralhado.setRestante(deckEmbaralhado.getRemaining());
+        embaralhado.setEmbaralhado(this.booleanToString(deckEmbaralhado.getShuffled()));
+        return embaralhado;
+
+    }
 
     public Baralho novoEmbaralhar(String deckCount){
         Deck deckNovoEmbaralhar = feignCardClient.newDeckShuffle(deckCount);
@@ -68,7 +70,6 @@ public class DeckService {
                 desenhar.setCartas(cartas);
                 desenhar.setRestante(desenharDeck.getRemaining());
                 return desenhar;
-
     }
 
     public String converteNipe(Card card) {
@@ -118,8 +119,24 @@ public class DeckService {
         return convCartas;
     }
 
+    private Pilhas converterPilha(Piles piles) {
+        Pilhas convPilha = new Pilhas();
+        convPilha.setPilha_nome(this.converterPilhaNome(piles.getPile_name()));
+        return convPilha;
 
-
+    }
+    private PilhaNome converterPilhaNome(PileName pileName){
+        PilhaNome convPilhaNome = new PilhaNome();
+        convPilhaNome.setRestante(pileName.getRemaining());
+        List<Carta> cartas = new ArrayList<>();
+        for (int i = 0; i < pileName.getCards().size(); i++) {
+            Card card = pileName.getCards().get(i);
+            Carta carta = this.converterCarta(card);
+            cartas.add(carta);
+        }
+        convPilhaNome.setCartas(cartas);
+        return convPilhaNome;
+    }
     private String booleanToString(Boolean valor){
         if (valor) {
             return "verdadeiro";
@@ -127,17 +144,14 @@ public class DeckService {
         return "falso";
     }
 
-    public Baralho listarPilha(String deckId, String pileName){
-        Deck deckListar = feignCardClient.listToPile(deckId, pileName);
+    public Baralho listarPilha(String deck_id, String piles){
+        Deck deckListar = feignCardClient.listToPile(deck_id, piles);
         Baralho listarBaralho = new Baralho();
         listarBaralho.setSucesso(this.booleanToString(deckListar.getSuccess()));
         listarBaralho.setBaralho_id(deckListar.getDeck_id());
         listarBaralho.setRestante(deckListar.getRemaining());
-        PilhaNome nomePilha = new PilhaNome();
-        Pilhas pilha = new Pilhas();
-        pilha.setPilha_nome(nomePilha);
-        listarBaralho.setPilhas(pilha);
         return listarBaralho;
-
     }
+
+
 }

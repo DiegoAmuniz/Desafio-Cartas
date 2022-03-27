@@ -3,8 +3,8 @@ package com.desafiocartas.Desafio.Cartas.model;
 import java.util.List;
 
 public class PilhaNome {
-    public Integer restante;
-    public List<Carta> cartas;
+    private Integer restante;
+    private List<Carta> cartas;
 
     public void setRestante(Integer restante) {
         this.restante = restante;

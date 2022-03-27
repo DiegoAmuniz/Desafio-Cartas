@@ -3,8 +3,8 @@ package com.desafiocartas.Desafio.Cartas.model;
 import java.util.List;
 
 public class PileName {
-    public Integer remaining;
-    public List<Card> cards;
+    private Integer remaining;
+    private List<Card> cards;
 
     public Integer getRemaining() {
         return remaining;
