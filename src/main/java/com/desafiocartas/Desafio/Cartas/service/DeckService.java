@@ -1,11 +1,9 @@
 package com.desafiocartas.Desafio.Cartas.service;
-
 import com.desafiocartas.Desafio.Cartas.feign.FeignCardClient;
 import com.desafiocartas.Desafio.Cartas.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.converter.json.GsonBuilderUtils;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 

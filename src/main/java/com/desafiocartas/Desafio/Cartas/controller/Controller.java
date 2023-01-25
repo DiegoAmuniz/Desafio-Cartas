@@ -1,7 +1,6 @@
 package com.desafiocartas.Desafio.Cartas.controller;
 
 import com.desafiocartas.Desafio.Cartas.model.Baralho;
-import com.desafiocartas.Desafio.Cartas.model.Piles;
 import com.desafiocartas.Desafio.Cartas.service.DeckService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

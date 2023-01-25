@@ -1,7 +1,5 @@
 package com.desafiocartas.Desafio.Cartas.feign;
-
 import com.desafiocartas.Desafio.Cartas.model.Deck;
-import com.desafiocartas.Desafio.Cartas.model.Piles;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
