@@ -1,10 +1,8 @@
 package com.desafiocartas.Desafio.Cartas.model;
 
-
-public class Carta {
+public class Cartas {
     public String codigo;
     public String imagem;
-   // public String imagens;
     public String valor;
     public String tipo;
 

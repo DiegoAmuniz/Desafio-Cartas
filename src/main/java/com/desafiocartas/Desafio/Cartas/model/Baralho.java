@@ -1,14 +1,13 @@
 package com.desafiocartas.Desafio.Cartas.model;
-
-import java.util.List;
+import java.util.ArrayList;
 
 public class Baralho {
     public String sucesso;
     public String baralho_id;
-    public List<Carta> cartas;
-    public Integer restante;
-    public Pilhas pilhas;
     public String embaralhado;
+    public Float restante;
+    Pilhas PilhaNome;
+    ArrayList <Cartas> cartas = new ArrayList<>();
 
     public void setSucesso(String sucesso) {
         this.sucesso = sucesso;
@@ -18,15 +17,19 @@ public class Baralho {
         this.baralho_id = baralho_id;
     }
 
-    public void setCartas(List<Carta> cartas) {
-        this.cartas = cartas;
+    public void setEmbaralhado(String embaralhado) {
+        this.embaralhado = embaralhado;
     }
 
-    public void setRestante(Integer restante) {
+    public void setRestante(Float restante) {
         this.restante = restante;
     }
 
-    public void setPilhas(Pilhas pilhas) { this.pilhas = pilhas; }
+    public void setPilhaNome(Pilhas pilhaNome) {
+        PilhaNome = pilhaNome;
+    }
 
-    public void setEmbaralhado(String embaralhado) { this.embaralhado = embaralhado; }
+    public void setCartas(ArrayList<Cartas> cartas) {
+        this.cartas = cartas;
+    }
 }

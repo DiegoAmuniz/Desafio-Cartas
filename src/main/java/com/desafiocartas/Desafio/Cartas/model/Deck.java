@@ -1,34 +1,36 @@
 package com.desafiocartas.Desafio.Cartas.model;
-
-import java.util.List;
+import java.util.ArrayList;
 
 public class Deck {
     public boolean success;
     public String deck_id;
-    public List<Card> cards;
-    public Integer remaining;
-    public Piles piles;
     public boolean shuffled;
+    public Float remaining;
+    Piles PileName;
+    ArrayList < Cards > cards = new ArrayList<>();
 
     public boolean getSuccess() {
-        return this.success;
+        return success;
     }
 
     public String getDeck_id() {
-        return this.deck_id;
-    }
-
-    public List<Card> getCards() { return this.cards; }
-
-    public Integer getRemaining() {
-        return this.remaining;
-    }
-
-    public Piles getPiles() {
-        return piles;
+        return deck_id;
     }
 
     public boolean getShuffled() {
-        return this.shuffled;
+        return shuffled;
+    }
+
+    public Float getRemaining() {
+        return remaining;
+    }
+
+    public Piles getPileName() {
+        return PileName;
+    }
+
+    public ArrayList<Cards> getCards() {
+        return cards;
     }
 }
+

@@ -1,9 +1,22 @@
 package com.desafiocartas.Desafio.Cartas.model;
 
 public class Pilhas {
-    private PilhaNome pilha_nome;
+    PilhaNome PilhaNome;
+    Descarte descarte;
 
-    public void setPilha_nome(PilhaNome pilha_nome) {
-        this.pilha_nome = pilha_nome;
+    public void setPilhaNome(com.desafiocartas.Desafio.Cartas.model.PilhaNome pilhaNome) {
+        PilhaNome = pilhaNome;
+    }
+
+    public void setDescarte(Descarte descarte) {
+        this.descarte = descarte;
+    }
+
+    public class Descarte {
+        private float restante;
+
+        public void setRestante(float restante) {
+            this.restante = restante;
+        }
     }
 }

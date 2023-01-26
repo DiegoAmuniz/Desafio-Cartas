@@ -1,10 +1,22 @@
 package com.desafiocartas.Desafio.Cartas.model;
 
-
 public class Piles {
-    private PileName pile_name;
+    PileName PileName;
+    Discard discard;
 
-    public PileName getPile_name() {
-        return pile_name;
+    public com.desafiocartas.Desafio.Cartas.model.PileName getPileName() {
+        return PileName;
+    }
+
+    public Discard getDiscard() {
+        return discard;
+    }
+
+    public class Discard {
+        private float remaining;
+
+        public float getRemaining() {
+            return remaining;
+        }
     }
 }

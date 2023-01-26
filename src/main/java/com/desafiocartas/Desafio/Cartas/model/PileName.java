@@ -1,24 +1,15 @@
 package com.desafiocartas.Desafio.Cartas.model;
-
-import java.util.List;
+import java.util.ArrayList;
 
 public class PileName {
-    private Integer remaining;
-    private List<Card> cards;
+    private Float remaining;
+    ArrayList<Cards> cards = new ArrayList<>();
 
-    public Integer getRemaining() {
+    public Float getRemaining() {
         return remaining;
     }
 
-    public void setRemaining(Integer remaining) {
-        this.remaining = remaining;
-    }
-
-    public List<Card> getCards() {
+    public ArrayList<Cards> getCards() {
         return cards;
-    }
-
-    public void setCards(List<Card> cards) {
-        this.cards = cards;
     }
 }

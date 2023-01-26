@@ -1,16 +1,15 @@
 package com.desafiocartas.Desafio.Cartas.model;
-
-import java.util.List;
+import java.util.ArrayList;
 
 public class PilhaNome {
-    private Integer restante;
-    private List<Carta> cartas;
+    private Float restante;
+    ArrayList<Cartas> Cartas = new ArrayList<>();
 
-    public void setRestante(Integer restante) {
+    public void setRestante(Float restante) {
         this.restante = restante;
     }
 
-    public void setCartas(List<Carta> cartas) {
-        this.cartas = cartas;
+    public void setCartas(ArrayList<com.desafiocartas.Desafio.Cartas.model.Cartas> cartas) {
+        Cartas = cartas;
     }
 }

@@ -2,10 +2,7 @@ package com.desafiocartas.Desafio.Cartas.service;
 import com.desafiocartas.Desafio.Cartas.feign.FeignCardClient;
 import com.desafiocartas.Desafio.Cartas.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.converter.json.GsonBuilderUtils;
 import org.springframework.stereotype.Service;
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class DeckService {
@@ -54,23 +51,23 @@ public class DeckService {
         return parcial;
     }
 
-    public Baralho desenhar(String deckId, String count){
+    /*public Baralho desenhar(String deckId, String count){
         Deck desenharDeck = feignCardClient.drawDeck(deckId, count);
         Baralho desenhar = new Baralho();
         desenhar.setSucesso(this.booleanToString(desenharDeck.getSuccess()));
         desenhar.setBaralho_id(desenharDeck.getDeck_id());
-        List<Carta> cartas = new ArrayList<>();
+        ArrayList<Cartas> cartas = new ArrayList<>();
                 for (int i = 0; i < desenharDeck.getCards().size(); i++) {
-                    Card card = desenharDeck.getCards().get(i);
-                    Carta carta = this.converterCarta(card);
-                    cartas.add(carta);
+                    Cards card = desenharDeck.getCards().get(i);
+                    Cartas cartas = this.converterCarta(card);
+                    cartas.add(cartas);
                 }
                 desenhar.setCartas(cartas);
                 desenhar.setRestante(desenharDeck.getRemaining());
                 return desenhar;
     }
-
-    public String converteNipe(Card card) {
+    */
+    public String converteNipe(Cards card) {
         switch (card.getSuit()) {
             case "SPADES":
                 card.setSuit(SuitType.SPADES.getSuitName());
@@ -88,7 +85,7 @@ public class DeckService {
         return card.getSuit();
     }
 
-    public String converteValor(Card card){
+    public String converteValor(Cards card){
         switch (card.getValue()) {
             case "JACK":
                 card.setValue(ValueType.JACK.getValueName());
@@ -108,8 +105,8 @@ public class DeckService {
         return card.getValue();
     }
 
-    private Carta converterCarta(Card card){
-        Carta convCartas = new Carta();
+    private Cartas converterCarta(Cards card){
+        Cartas convCartas = new Cartas();
         convCartas.setCodigo(card.getCode());
         convCartas.setImagem(card.getImage());
         convCartas.setTipo(converteNipe(card));
@@ -117,16 +114,16 @@ public class DeckService {
         return convCartas;
     }
 
-    private Pilhas converterPilha(Piles piles) {
+    /*private Pilhas converterPilha(Piles piles) {
         Pilhas convPilha = new Pilhas();
-        convPilha.setPilha_nome(this.converterPilhaNome(piles.getPile_name()));
+        convPilha.setPilha_nome(this.converterPilhaNome(piles.getPileName()));
         return convPilha;
 
     }
     private PilhaNome converterPilhaNome(PileName pileName){
         PilhaNome convPilhaNome = new PilhaNome();
         convPilhaNome.setRestante(pileName.getRemaining());
-        List<Carta> cartas = new ArrayList<>();
+        ArrayList<Cartas> cartas = new ArrayList<>();
         for (int i = 0; i < pileName.getCards().size(); i++) {
             Card card = pileName.getCards().get(i);
             Carta carta = this.converterCarta(card);
@@ -135,21 +132,21 @@ public class DeckService {
         convPilhaNome.setCartas(cartas);
         return convPilhaNome;
     }
+    */
     private String booleanToString(Boolean valor){
         if (valor) {
             return "verdadeiro";
         }
         return "falso";
     }
-
     public Baralho listarPilha(String deck_id, String piles){
         Deck deckListar = feignCardClient.listToPile(deck_id, piles);
         Baralho listarBaralho = new Baralho();
         listarBaralho.setSucesso(this.booleanToString(deckListar.getSuccess()));
         listarBaralho.setBaralho_id(deckListar.getDeck_id());
         listarBaralho.setRestante(deckListar.getRemaining());
+        //listarBaralho.setPilhas(this.converterPilha(deckListar.getPileName()));
+
         return listarBaralho;
     }
-
-
 }

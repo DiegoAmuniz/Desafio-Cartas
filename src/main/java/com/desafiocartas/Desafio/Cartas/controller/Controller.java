@@ -37,11 +37,11 @@ public class Controller {
         return new ResponseEntity(deckService.baralhoParcial(deck), HttpStatus.OK);
     }
 
-    @GetMapping("{deckId}/desenhar/")
+    /*@GetMapping("{deckId}/desenhar/")
     public ResponseEntity desenhar(@PathVariable("deckId") String deckId, @RequestParam(value = "contagem", defaultValue = "2") String count){
 
         return new ResponseEntity(deckService.desenhar(deckId, count), HttpStatus.OK);
-    }
+    }*/
 
     @GetMapping("{deckId}/pilha/{pile_name}/listar/")
     public ResponseEntity listarPilha(@PathVariable Map<String, String> patchVarsMap){
@@ -49,6 +49,4 @@ public class Controller {
         String piles = patchVarsMap.get("pile_name");
         return new ResponseEntity(deckService.listarPilha(deck_id, piles), HttpStatus.OK);
     }
-
-
 }
