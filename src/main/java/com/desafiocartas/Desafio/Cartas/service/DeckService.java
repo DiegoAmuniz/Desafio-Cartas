@@ -4,6 +4,8 @@ import com.desafiocartas.Desafio.Cartas.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+
 @Service
 public class DeckService {
 
@@ -51,22 +53,21 @@ public class DeckService {
         return parcial;
     }
 
-    /*public Baralho desenhar(String deckId, String count){
+    public Baralho desenhar(String deckId, String count){
         Deck desenharDeck = feignCardClient.drawDeck(deckId, count);
         Baralho desenhar = new Baralho();
         desenhar.setSucesso(this.booleanToString(desenharDeck.getSuccess()));
         desenhar.setBaralho_id(desenharDeck.getDeck_id());
-        ArrayList<Cartas> cartas = new ArrayList<>();
+        ArrayList<Cartas> carta = new ArrayList<>();
                 for (int i = 0; i < desenharDeck.getCards().size(); i++) {
                     Cards card = desenharDeck.getCards().get(i);
                     Cartas cartas = this.converterCarta(card);
                     cartas.add(cartas);
                 }
-                desenhar.setCartas(cartas);
+                desenhar.setCartas(carta);
                 desenhar.setRestante(desenharDeck.getRemaining());
                 return desenhar;
     }
-    */
     public String converteNipe(Cards card) {
         switch (card.getSuit()) {
             case "SPADES":
@@ -114,9 +115,9 @@ public class DeckService {
         return convCartas;
     }
 
-    /*private Pilhas converterPilha(Piles piles) {
+    private Pilhas converterPilha(Piles piles) {
         Pilhas convPilha = new Pilhas();
-        convPilha.setPilha_nome(this.converterPilhaNome(piles.getPileName()));
+        convPilha.setPilhaNome(this.converterPilhaNome(piles.getPileName()));
         return convPilha;
 
     }
@@ -125,14 +126,14 @@ public class DeckService {
         convPilhaNome.setRestante(pileName.getRemaining());
         ArrayList<Cartas> cartas = new ArrayList<>();
         for (int i = 0; i < pileName.getCards().size(); i++) {
-            Card card = pileName.getCards().get(i);
-            Carta carta = this.converterCarta(card);
+            Cards card = pileName.getCards().get(i);
+            Cartas carta = this.converterCarta(card);
             cartas.add(carta);
         }
         convPilhaNome.setCartas(cartas);
         return convPilhaNome;
     }
-    */
+
     private String booleanToString(Boolean valor){
         if (valor) {
             return "verdadeiro";
@@ -145,7 +146,7 @@ public class DeckService {
         listarBaralho.setSucesso(this.booleanToString(deckListar.getSuccess()));
         listarBaralho.setBaralho_id(deckListar.getDeck_id());
         listarBaralho.setRestante(deckListar.getRemaining());
-        //listarBaralho.setPilhas(this.converterPilha(deckListar.getPileName()));
+        listarBaralho.setPilhaNome(this.converterPilha(deckListar.getPileName()));
 
         return listarBaralho;
     }

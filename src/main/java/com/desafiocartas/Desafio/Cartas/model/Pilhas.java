@@ -1,10 +1,10 @@
 package com.desafiocartas.Desafio.Cartas.model;
 
 public class Pilhas {
-    PilhaNome PilhaNome;
-    Descarte descarte;
+    public PilhaNome PilhaNome;
+    public Descarte descarte;
 
-    public void setPilhaNome(com.desafiocartas.Desafio.Cartas.model.PilhaNome pilhaNome) {
+    public void setPilhaNome(PilhaNome pilhaNome) {
         PilhaNome = pilhaNome;
     }
 

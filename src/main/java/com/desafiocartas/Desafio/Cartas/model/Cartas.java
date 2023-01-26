@@ -37,6 +37,9 @@ public class Cartas {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
+
+    public void add(Cartas cartas) {
+    }
 }
 
 

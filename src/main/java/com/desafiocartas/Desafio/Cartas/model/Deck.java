@@ -6,8 +6,8 @@ public class Deck {
     public String deck_id;
     public boolean shuffled;
     public Float remaining;
-    Piles PileName;
-    ArrayList < Cards > cards = new ArrayList<>();
+    public Piles PileName;
+    public ArrayList < Cards > cards = new ArrayList<>();
 
     public boolean getSuccess() {
         return success;
