@@ -6,7 +6,7 @@ public class Baralho {
     public String baralho_id;
     public String embaralhado;
     public Float restante;
-    public Pilhas PilhaNome;
+    public Pilhas pilhas;
     public ArrayList <Cartas> cartas = new ArrayList<>();
 
     public void setSucesso(String sucesso) {
@@ -25,8 +25,8 @@ public class Baralho {
         this.restante = restante;
     }
 
-    public void setPilhaNome(Pilhas pilhaNome) {
-        PilhaNome = pilhaNome;
+    public void setPilhas(Pilhas pilhas) {
+        this.pilhas = pilhas;
     }
 
     public void setCartas(ArrayList<Cartas> cartas) {

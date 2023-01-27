@@ -6,7 +6,7 @@ public class Deck {
     public String deck_id;
     public boolean shuffled;
     public Float remaining;
-    public Piles PileName;
+    public Piles piles;
     public ArrayList < Cards > cards = new ArrayList<>();
 
     public boolean getSuccess() {
@@ -25,9 +25,7 @@ public class Deck {
         return remaining;
     }
 
-    public Piles getPileName() {
-        return PileName;
-    }
+    public Piles getPiles() { return piles; }
 
     public ArrayList<Cards> getCards() {
         return cards;

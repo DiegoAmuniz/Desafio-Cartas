@@ -58,13 +58,13 @@ public class DeckService {
         Baralho desenhar = new Baralho();
         desenhar.setSucesso(this.booleanToString(desenharDeck.getSuccess()));
         desenhar.setBaralho_id(desenharDeck.getDeck_id());
-        ArrayList<Cartas> carta = new ArrayList<>();
+        ArrayList<Cartas> cartas = new ArrayList<>();
                 for (int i = 0; i < desenharDeck.getCards().size(); i++) {
                     Cards card = desenharDeck.getCards().get(i);
-                    Cartas cartas = this.converterCarta(card);
-                    cartas.add(cartas);
+                    Cartas carta = this.converterCarta(card);
+                    cartas.add(carta);
                 }
-                desenhar.setCartas(carta);
+                desenhar.setCartas(cartas);
                 desenhar.setRestante(desenharDeck.getRemaining());
                 return desenhar;
     }
@@ -115,9 +115,9 @@ public class DeckService {
         return convCartas;
     }
 
-    private Pilhas converterPilha(Piles piles) {
+    private Pilhas converterPilha(Piles pile) {
         Pilhas convPilha = new Pilhas();
-        convPilha.setPilhaNome(this.converterPilhaNome(piles.getPileName()));
+        convPilha.setPilhaNome(this.converterPilhaNome(pile.getPileName()));
         return convPilha;
 
     }
@@ -146,7 +146,7 @@ public class DeckService {
         listarBaralho.setSucesso(this.booleanToString(deckListar.getSuccess()));
         listarBaralho.setBaralho_id(deckListar.getDeck_id());
         listarBaralho.setRestante(deckListar.getRemaining());
-        listarBaralho.setPilhaNome(this.converterPilha(deckListar.getPileName()));
+        listarBaralho.setPilhas(this.converterPilha(deckListar.getPiles()));
 
         return listarBaralho;
     }
