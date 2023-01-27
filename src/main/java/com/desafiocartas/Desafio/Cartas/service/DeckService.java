@@ -134,20 +134,29 @@ public class DeckService {
         return convPilhaNome;
     }
 
-    private String booleanToString(Boolean valor){
-        if (valor) {
-            return "verdadeiro";
+        private String booleanToString(Boolean valor){
+            if (valor) {
+                return "verdadeiro";
+            }
+            return "falso";
         }
-        return "falso";
-    }
-    public Baralho listarPilha(String deck_id, String piles){
+
+     public Baralho listarPilha(String deck_id, String piles){
         Deck deckListar = feignCardClient.listToPile(deck_id, piles);
+        Piles pileListar = feignCardClient.listPiles(deck_id, piles);
+        PileName pileNameListar = feignCardClient.listPileName(deck_id,piles);
         Baralho listarBaralho = new Baralho();
+        Pilhas listarPilha = new Pilhas();
+        PilhaNome listarPilhaNome = new PilhaNome();
         listarBaralho.setSucesso(this.booleanToString(deckListar.getSuccess()));
         listarBaralho.setBaralho_id(deckListar.getDeck_id());
         listarBaralho.setRestante(deckListar.getRemaining());
-        listarBaralho.setPilhas(this.converterPilha(deckListar.getPiles()));
+        Piles piles = pileListar.getPileName();
+        PilhaNome pilhaNome = this.converterPilhaNome(piles);
+        listarPilha.setPilhaNome(pilhaNome);
 
+        //Pilhas pilha = this.converterPilhaNome(pileListar.getPileName());
+        //listarBaralho.setPilhas(pilha);*/
         return listarBaralho;
     }
 }

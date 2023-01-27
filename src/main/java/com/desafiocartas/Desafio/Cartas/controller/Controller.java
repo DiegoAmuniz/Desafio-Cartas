@@ -1,6 +1,7 @@
 package com.desafiocartas.Desafio.Cartas.controller;
 
 import com.desafiocartas.Desafio.Cartas.model.Baralho;
+import com.desafiocartas.Desafio.Cartas.model.Piles;
 import com.desafiocartas.Desafio.Cartas.service.DeckService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -44,9 +45,8 @@ public class Controller {
     }
 
     @GetMapping("{deckId}/pilha/{pile_name}/listar/")
-    public ResponseEntity listarPilha(@PathVariable Map<String, String> patchVarsMap){
-        String deck_id = patchVarsMap.get("deckId");
-        String piles = patchVarsMap.get("pile_name");
-        return new ResponseEntity(deckService.listarPilha(deck_id, piles), HttpStatus.OK);
+    public ResponseEntity listarPilha(@PathVariable("deckId") String deckId, @PathVariable("pile_name") String piles){
+
+        return new ResponseEntity(deckService.listarPilha(deckId, piles), HttpStatus.OK);
     }
 }

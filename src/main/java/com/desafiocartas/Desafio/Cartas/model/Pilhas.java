@@ -1,11 +1,11 @@
 package com.desafiocartas.Desafio.Cartas.model;
 
 public class Pilhas {
-    public PilhaNome PilhaNome;
+    public PilhaNome pilhaNome;
     public Descarte descarte;
 
     public void setPilhaNome(PilhaNome pilhaNome) {
-        PilhaNome = pilhaNome;
+        this.pilhaNome = pilhaNome;
     }
 
     public void setDescarte(Descarte descarte) {

@@ -1,5 +1,7 @@
 package com.desafiocartas.Desafio.Cartas.feign;
 import com.desafiocartas.Desafio.Cartas.model.Deck;
+import com.desafiocartas.Desafio.Cartas.model.PileName;
+import com.desafiocartas.Desafio.Cartas.model.Piles;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,6 +42,14 @@ public interface FeignCardClient {
     @GetMapping("{deckId}/pile/{pile_name}/list/")
         Deck listToPile (@PathVariable("deckId") String deck_id,
                          @PathVariable("pile_name")String piles);
+
+    @GetMapping("{deckId}/pile/{pile_name}/list/")
+        Piles listPiles (@PathVariable("deckId") String deck_id,
+                         @PathVariable("pile_name")String piles);
+
+    @GetMapping("{deckId}/pile/{pile_name}/list/")
+        PileName listPileName (@PathVariable("deckId") String deck_id,
+                               @PathVariable("pile_name")String piles);
 
 
 
