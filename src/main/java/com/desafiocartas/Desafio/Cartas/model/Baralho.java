@@ -1,6 +1,8 @@
 package com.desafiocartas.Desafio.Cartas.model;
-import java.util.ArrayList;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.util.ArrayList;
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class Baralho {
     public String sucesso;
     public String baralho_id;

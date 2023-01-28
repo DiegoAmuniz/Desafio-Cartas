@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface FeignCardClient {
 
     @GetMapping("/new/")
-        Deck newDeck();
+            Deck newDeck();
 
     @GetMapping("{deckId}/shuffle/")
         Deck shuffleDeckById(@PathVariable("deckId") String deckId);

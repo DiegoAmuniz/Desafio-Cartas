@@ -21,7 +21,6 @@ public class DeckService {
         baralho.setEmbaralhado(this.booleanToString(deck.getShuffled()));
         return baralho;
     }
-
     public Baralho embaralhado(String id){
         Deck deckEmbaralhado = feignCardClient.shuffleDeckById(id);
         Baralho embaralhado = new Baralho();
@@ -110,14 +109,21 @@ public class DeckService {
         Cartas convCartas = new Cartas();
         convCartas.setCodigo(card.getCode());
         convCartas.setImagem(card.getImage());
+        convCartas.setImagens(converterImagens(card.getImages()));
         convCartas.setTipo(converteNipe(card));
         convCartas.setValor(converteValor(card));
         return convCartas;
     }
 
+    private Cartas.Imagens converterImagens(Cards.Images images){
+        Cartas.Imagens convImagens = new Cartas.Imagens();
+        convImagens.setPng(images.getPng());
+        convImagens.setSvg(images.getSvg());
+        return convImagens;
+    }
     private Pilhas converterPilha(Piles pile) {
         Pilhas convPilha = new Pilhas();
-        convPilha.setPilhaNome(this.converterPilhaNome(pile.getPileName()));
+        convPilha.setPilhaNome(converterPilhaNome(pile.getPileName()));
         return convPilha;
 
     }
@@ -127,7 +133,7 @@ public class DeckService {
         ArrayList<Cartas> cartas = new ArrayList<>();
         for (int i = 0; i < pileName.getCards().size(); i++) {
             Cards card = pileName.getCards().get(i);
-            Cartas carta = this.converterCarta(card);
+            Cartas carta = converterCarta(card);
             cartas.add(carta);
         }
         convPilhaNome.setCartas(cartas);
@@ -143,20 +149,12 @@ public class DeckService {
 
      public Baralho listarPilha(String deck_id, String piles){
         Deck deckListar = feignCardClient.listToPile(deck_id, piles);
-        Piles pileListar = feignCardClient.listPiles(deck_id, piles);
-        PileName pileNameListar = feignCardClient.listPileName(deck_id,piles);
         Baralho listarBaralho = new Baralho();
-        Pilhas listarPilha = new Pilhas();
-        PilhaNome listarPilhaNome = new PilhaNome();
         listarBaralho.setSucesso(this.booleanToString(deckListar.getSuccess()));
         listarBaralho.setBaralho_id(deckListar.getDeck_id());
         listarBaralho.setRestante(deckListar.getRemaining());
-        Piles piles = pileListar.getPileName();
-        PilhaNome pilhaNome = this.converterPilhaNome(piles);
-        listarPilha.setPilhaNome(pilhaNome);
+        listarBaralho.setPilhas(converterPilha(deckListar.getPiles()));
 
-        //Pilhas pilha = this.converterPilhaNome(pileListar.getPileName());
-        //listarBaralho.setPilhas(pilha);*/
         return listarBaralho;
     }
 }

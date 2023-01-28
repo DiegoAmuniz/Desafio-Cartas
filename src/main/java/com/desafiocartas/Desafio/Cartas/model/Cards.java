@@ -3,6 +3,7 @@ package com.desafiocartas.Desafio.Cartas.model;
 public class Cards {
     private String code;
     private String image;
+    private Images images;
     private String value;
     private String suit;
 
@@ -22,6 +23,14 @@ public class Cards {
         this.image = image;
     }
 
+    public Images getImages() {
+        return images;
+    }
+
+    public void setImages(Images images) {
+        this.images = images;
+    }
+
     public String getValue() {
         return value;
     }
@@ -37,4 +46,18 @@ public class Cards {
     public void setSuit(String suit) {
         this.suit = suit;
     }
+
+    public class Images {
+        private String svg;
+        private String png;
+
+        public String getSvg() {
+            return svg;
+        }
+
+        public String getPng() {
+            return png;
+        }
+    }
+
 }

@@ -1,5 +1,7 @@
 package com.desafiocartas.Desafio.Cartas.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class Pilhas {
     public PilhaNome pilhaNome;
     public Descarte descarte;

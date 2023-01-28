@@ -1,10 +1,11 @@
 package com.desafiocartas.Desafio.Cartas.model;
 
 public class Cartas {
-    public String codigo;
-    public String imagem;
-    public String valor;
-    public String tipo;
+    private String codigo;
+    private String imagem;
+    private Imagens imagens;
+    private String valor;
+    private String tipo;
 
     public String getCodigo() {
         return codigo;
@@ -20,6 +21,14 @@ public class Cartas {
 
     public void setImagem(String imagem) {
         this.imagem = imagem;
+    }
+
+    public Imagens getImagens() {
+        return imagens;
+    }
+
+    public void setImagens(Imagens imagens) {
+        this.imagens = imagens;
     }
 
     public String getValor() {
@@ -38,8 +47,27 @@ public class Cartas {
         this.tipo = tipo;
     }
 
-    public void add(Cartas cartas) {
+    public static class Imagens {
+        private String svg;
+        private String png;
+
+        public String getSvg() {
+            return svg;
+        }
+
+        public void setSvg(String svg) {
+            this.svg = svg;
+        }
+
+        public String getPng() {
+            return png;
+        }
+
+        public void setPng(String png) {
+            this.png = png;
+        }
     }
+
 }
 
 
