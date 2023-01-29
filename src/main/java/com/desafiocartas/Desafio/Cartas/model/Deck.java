@@ -2,12 +2,12 @@ package com.desafiocartas.Desafio.Cartas.model;
 import java.util.ArrayList;
 
 public class Deck {
-    public boolean success;
-    public String deck_id;
-    public boolean shuffled;
-    public Float remaining;
-    public Piles piles;
-    public ArrayList < Cards > cards = new ArrayList<>();
+    private boolean success;
+    private String deck_id;
+    private boolean shuffled;
+    private Float remaining;
+    private Piles piles;
+    private ArrayList < Cards > cards = new ArrayList<>();
 
     public boolean getSuccess() {
         return success;

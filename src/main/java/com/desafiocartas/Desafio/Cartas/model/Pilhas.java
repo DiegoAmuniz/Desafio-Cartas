@@ -3,8 +3,8 @@ package com.desafiocartas.Desafio.Cartas.model;
 import com.fasterxml.jackson.annotation.JsonInclude;
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class Pilhas {
-    public PilhaNome pilhaNome;
-    public Descarte descarte;
+    private PilhaNome pilhaNome;
+    private Descarte descarte;
 
     public void setPilhaNome(PilhaNome pilhaNome) {
         this.pilhaNome = pilhaNome;
@@ -14,7 +14,7 @@ public class Pilhas {
         this.descarte = descarte;
     }
 
-    public class Descarte {
+    public static class Descarte {
         private float restante;
 
         public void setRestante(float restante) {

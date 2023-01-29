@@ -43,15 +43,6 @@ public interface FeignCardClient {
         Deck listToPile (@PathVariable("deckId") String deck_id,
                          @PathVariable("pile_name")String piles);
 
-    @GetMapping("{deckId}/pile/{pile_name}/list/")
-        Piles listPiles (@PathVariable("deckId") String deck_id,
-                         @PathVariable("pile_name")String piles);
-
-    @GetMapping("{deckId}/pile/{pile_name}/list/")
-        PileName listPileName (@PathVariable("deckId") String deck_id,
-                               @PathVariable("pile_name")String piles);
-
-
 
     @GetMapping("{deckId}/pile/{pile_name}/draw/")
         Deck drawToPile(@PathVariable("deckId") String deckId,

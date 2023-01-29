@@ -1,8 +1,8 @@
 package com.desafiocartas.Desafio.Cartas.model;
 
 public class Piles {
-    public PileName pileName;
-    public Discard discard;
+    private PileName pileName;
+    private Discard discard;
 
     public PileName getPileName() {
         return pileName;

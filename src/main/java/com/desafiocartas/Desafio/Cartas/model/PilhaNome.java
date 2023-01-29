@@ -4,8 +4,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import java.util.ArrayList;
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class PilhaNome {
-    public Float restante;
-    public ArrayList<Cartas> Cartas = new ArrayList<>();
+    private Float restante;
+    private ArrayList<Cartas> Cartas = new ArrayList<>();
 
     public void setRestante(Float restante) {
         this.restante = restante;
